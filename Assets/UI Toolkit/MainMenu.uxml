@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/tutorial_labels.uss?fileID=7433441132597879392&amp;guid=3cca3cb6cd0352a4a8ede335feb387f0&amp;type=3#tutorial_labels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/tutorial_buttons.uss?fileID=7433441132597879392&amp;guid=cab9e58de45b1054f8669ff6911fa0b4&amp;type=3#tutorial_buttons" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/vecteezy_night-landscape-with-mountains-and-full-moon_14177576.jpg?fileID=2800000&amp;guid=2e381440d8830cc448238b18f11ac74e&amp;type=3#vecteezy_night-landscape-with-mountains-and-full-moon_14177576&quot;); flex-direction: row; width: 100%; height: 100%;">
+        <ui:VisualElement name="Sidebar" style="flex-grow: 0; width: 30%; height: auto; flex-direction: column; background-color: rgba(141, 44, 171, 0.4); justify-content: center;">
+            <ui:Label tabindex="-1" text="Menu Tutorial" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" class="label-main-title" style="font-size: 78px; margin-top: -2px; margin-right: -2px; margin-bottom: -2px; margin-left: 0; -unity-font-style: bold;" />
+            <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Start" class="button-main-title" />
+            <ui:Button text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Settings" class="button-main-title" />
+            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Quit" class="button-main-title" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
