@@ -45,9 +45,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnShoot() {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log(mousePosition);
-        Vector3 shootDirection = (mousePosition - transform.position).normalized;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 shootDirection = (mousePosition - (Vector2)transform.position).normalized;
+        Debug.Log("shootDirection: " + shootDirection);
         GameObject gameObject = Instantiate(projectile, transform.position, Quaternion.identity);
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(shootDirection.x, shootDirection.y) * projectileSpeed;
     }

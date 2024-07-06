@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2885194506856349214}
   - component: {fileID: 4074687068800803593}
   - component: {fileID: 1182029931085808041}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -172,8 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2007738d5e2aae747a44d85ef6417f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 7442127407569637098, guid: ec0af6145a06ab34582f83d6994cb5ae, type: 3}
   playerSpeed: 7
   sightDistance: 1.5
+  projectileSpeed: 20
 --- !u!114 &1182029931085808041
 MonoBehaviour:
   m_ObjectHideFlags: 0
