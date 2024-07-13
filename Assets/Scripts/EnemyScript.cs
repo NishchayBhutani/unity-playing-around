@@ -6,13 +6,14 @@ public class EnemyScript : MonoBehaviour
 {
 
     bool isInAttackMode = false;
+    Rigidbody2D rb;
 
     public float visionRadius = 5f;
     public LayerMask playerLayerMask;
+    public float enemyMoveSpeed = 7f;
 
-    void Start()
-    {
-        
+    void Awake() {
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -21,9 +22,12 @@ public class EnemyScript : MonoBehaviour
     }
 
     void FixedUpdate() {
-        isInAttackMode = Physics2D.OverlapCircle(transform.position, visionRadius, playerLayerMask);
-        if(isInAttackMode) {
+        Collider2D hitCollider = Physics2D.OverlapCircle(transform.position, visionRadius, playerLayerMask);
+        if(hitCollider != null) {
             Debug.Log("player detected by enemy");
+            Vector2 positionToBeMoved = hitCollider.gameObject.transform.position - transform.position;
+            positionToBeMoved.Normalize();
+            rb.MovePosition(rb.position + (positionToBeMoved) * Time.deltaTime * enemyMoveSpeed);
         }
     }
 
