@@ -341,6 +341,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   enemyMoveSpeed: 2
+  projectile: {fileID: 7442127407569637098, guid: ec0af6145a06ab34582f83d6994cb5ae, type: 3}
+  projectileSpeed: 20
+  shootCooldownTime: 2
 --- !u!61 &754324950
 BoxCollider2D:
   m_ObjectHideFlags: 0

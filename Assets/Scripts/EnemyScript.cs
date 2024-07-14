@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
 
-    bool isInAttackMode = false;
     Rigidbody2D rb;
-
+    bool isInShootCooldown = false;
+    float currentShootCooldownTime;
     public float visionRadius = 5f;
     public LayerMask playerLayerMask;
     public float enemyMoveSpeed = 7f;
+    public GameObject projectile;
+    public float projectileSpeed = 20f;
+    public float shootCooldownTime = 2f;
 
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -18,7 +21,12 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
-        
+        if(isInShootCooldown) {
+            currentShootCooldownTime -= Time.deltaTime;
+            if(currentShootCooldownTime <= 0) {
+                isInShootCooldown = false;
+            }
+        }
     }
 
     void FixedUpdate() {
@@ -28,6 +36,12 @@ public class EnemyScript : MonoBehaviour
             Vector2 positionToBeMoved = hitCollider.gameObject.transform.position - transform.position;
             positionToBeMoved.Normalize();
             rb.MovePosition(rb.position + (positionToBeMoved) * Time.deltaTime * enemyMoveSpeed);
+            if(!isInShootCooldown) {
+                GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
+                proj.GetComponent<Rigidbody2D>().velocity = positionToBeMoved * projectileSpeed;
+                currentShootCooldownTime = shootCooldownTime;
+                isInShootCooldown = true;
+            }
         }
     }
 
